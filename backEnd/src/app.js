@@ -1,22 +1,37 @@
 const express = require("express");
-const app = express();
+const {createServer} = require("node:http");
+const cors = require("cors");
 
 const path = require("path");
-require("dotenv").config()
+require("dotenv").config();
 
-const {configDB} = require("./config/db");
+const {connectToSocket} = require('./controllers/socketManager');
+const app = express();
+const server = createServer(app);
+const socketIO = connectToSocket(server);
 
-app.get("/", (req, res) => {
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
+app.use(express.urlencoded({extended : true}));     //To parse data of an id
+
+app.use(express.json());
+
+app.get("/home", (req, res) => {
     res.send("Starting");
 });
 
-//Starting the server only after DB connection
+
+// Starting the server
+const port = process.env.PORT;
+const {configDB} = require("./config/db");
 const startServer = async () => {
     try {
-        await configDB();
+        await configDB();           // First connect Database
         
-        app.listen(8080, () => {
-            console.log("server is listening to port 8080");
+        server.listen(port, () => {
+            console.log(`server is listening to port ${port}`);
         });
     } catch (err) {
         console.error("Failed to start server:", err);
