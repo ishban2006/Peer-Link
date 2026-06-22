@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended : true}));     //To parse data of an id
 app.use(express.json());
 
 app.get("/home", (req, res) => {
-    res.send("Starting");
+    res.send("Hey FrontEnd!!!");
 });
 
 
