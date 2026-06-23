@@ -10,6 +10,9 @@ const app = express();
 const server = createServer(app);
 const socketIO = connectToSocket(server);
 
+const userRoutes = require("./expressRoutes/user");
+const {dispError} = require("./config/middleware");
+
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
@@ -22,6 +25,11 @@ app.get("/home", (req, res) => {
     res.send("Hey FrontEnd!!!");
 });
 
+// User things
+app.use("/user", userRoutes);
+
+// Display errors
+app.use(dispError);
 
 // Starting the server
 const port = process.env.PORT;
