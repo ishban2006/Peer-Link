@@ -1,2 +1,2 @@
 # Peer-Link
-A web conferencing platform that enables real-time audio/video communication, screen sharing, and seamless online collaboration.
+Peer-Link is a modern video conferencing platform that allows users to connect through virtual meeting rooms, exchange real-time messages, and collaborate seamlessly. Built using React, Node.js, Express, MongoDB, and Socket.IO.
