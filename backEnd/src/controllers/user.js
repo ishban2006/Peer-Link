@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
-const httpStatus = require("http-status");
 
 const ExpressError = require("../utility/expressError");
 
@@ -21,12 +20,12 @@ module.exports.register = async (req, res) => {
 
     if (existingUser) {
         throw new ExpressError(
-            httpStatus.CONFLICT,
+            409,
             "User already exists"
         );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);     // 10 Salts
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const token = crypto.randomBytes(20).toString("hex");
 
@@ -39,8 +38,41 @@ module.exports.register = async (req, res) => {
 
     await newUser.save();
 
-    return res.status(httpStatus.CREATED).json({
+    return res.status(201).json({
         message: "User Registered Successfully",
+        token
+    });
+};
+
+module.exports.login = async (req, res) => {
+
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        throw new ExpressError(
+            400,
+            "Please provide username and password"
+        );
+    }
+
+    const user = await User.findOne({ username });
+
+    if (
+        !user ||
+        !(await bcrypt.compare(password, user.password))
+    ) {
+        throw new ExpressError(
+            401,
+            "Invalid username or password"
+        );
+    }
+
+    const token = crypto.randomBytes(20).toString("hex");
+
+    user.token = token;
+    await user.save();
+
+    return res.status(200).json({
         token
     });
 };

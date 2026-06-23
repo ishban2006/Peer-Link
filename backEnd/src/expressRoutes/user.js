@@ -9,4 +9,10 @@ router
             wrapAsync(userController.register)
         );
 
+router.
+    route("/login")
+        .post(
+            wrapAsync(userController.login)
+        );
+
 module.exports = router;

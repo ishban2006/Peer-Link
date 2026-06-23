@@ -1,6 +1,6 @@
 class expressError extends Error {
     constructor(statusCode, message) {
-        super();        // Inheritance Thing
+        super(message);        // Inheritance Thing
         this.statusCode = statusCode;
         this.message = message;
     }
