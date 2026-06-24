@@ -1,1 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+frontEnd/node_modules/
+backEnd/node_modules/
+
+# Build files
+frontEnd/dist/
+frontEnd/dist-ssr/
+backEnd/dist/
+backEnd/dist-ssr/
+
+# Environment files
+.env
+.env.*
+backEnd/.env
+
+# Local config
+*.local
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS
 .DS_Store
