@@ -1,0 +1,39 @@
+.authContainer {
+    height: 100vh;
+}
+
+.authLeft {
+    background-image: url('/landingPageBGI.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.authBox {
+    margin: 64px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authToggle {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.authForm {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.authError {
+    color: red;
+    margin-top: 10px;
+}
+
+.authButton {
+    margin-top: 24px !important;
+    margin-bottom: 16px !important;
+}
