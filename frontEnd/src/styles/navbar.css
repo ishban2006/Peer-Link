@@ -30,6 +30,7 @@ nav {
     font-weight: 500;
     cursor: pointer;
     transition: .2s;
+    color: #000;
 }
 
 .navlistText:hover {

@@ -393,10 +393,12 @@ function VideoMeet() {
 
     let handleEndCall = () => {
         try {
-            let tracks = localVideoref.current.srcObject.getTracks()
-            tracks.forEach(track => track.stop())
-        } catch (e) { }
-        window.location.href = "/home"
+            localVideoref.current?.srcObject?.getTracks()?.forEach(track => track.stop());
+        } catch (e) {}
+
+        window.location.href = localStorage.getItem("token")
+            ? "/home"
+            : "/";
     }
 
     let openChat = () => {

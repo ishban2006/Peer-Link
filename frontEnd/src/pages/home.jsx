@@ -42,7 +42,7 @@ function HomeComponent() {
 
                     <Button onClick={() => {
                         localStorage.removeItem("token")
-                        navigate("/auth")
+                        navigate("/")
                     }}>
                         Logout
                     </Button>
