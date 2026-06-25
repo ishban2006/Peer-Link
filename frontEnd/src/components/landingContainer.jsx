@@ -1,5 +1,5 @@
 import '../App.css'
-import './landingContainer.css'
+import '../styles/landingContainer.css'
 import { Link } from "react-router-dom";
 
 export default function LandingMainContainer() {

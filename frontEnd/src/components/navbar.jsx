@@ -1,5 +1,5 @@
 import '../App.css'
-import './navbar.css'
+import '../styles/navbar.css'
 import { Users } from "lucide-react";
 
 function Navbar() {

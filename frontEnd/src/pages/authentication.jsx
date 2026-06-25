@@ -10,7 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Snackbar } from '@mui/material';
 
-import './authentication.css'
+import '../styles/authentication.css'
 import { AuthContext } from '../contexts/authContext';
 
 const defaultTheme = createTheme();

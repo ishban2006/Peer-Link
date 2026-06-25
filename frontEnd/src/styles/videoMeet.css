@@ -1,61 +1,98 @@
 .meetVideoContainer {
-    position: relative;
+    display: flex;
+    width: 100%;
     height: 100vh;
-    background: rgb(1, 4, 48);
+    background: #202124;
+    overflow: hidden;
+    position: relative;
 }
 
-.meetUserVideo {
-    position: absolute;
-    bottom: 10vh;
-    height: 20vh;
-    width: auto;
-    left: 0;
-    border-radius: 20px;
+.videoSection{
+    flex:1;
+    position:relative;
+    overflow:hidden;
 }
 
 .buttonContainers {
     position: absolute;
-    width: 100vw;
-    bottom: 0;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+    background: rgba(25,25,25,.85);
+    padding: 12px 25px;
+    border-radius: 50px;
+    z-index: 200;
 }
 
 .buttonContainers svg {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
-.conferenceView { 
-
-    display: flex;
-    
-    padding: 10px;
-    gap: 10px;
+.conferenceView{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
-.conferenceView  video {
-    width: 40vw;
-    height: 20vh;
-    min-width: 30vw;
-    border-radius: 10px;
+.videoSection{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
 }
 
-.chatRoom {
-    position: absolute;
-    height: 90vh;
-    right: 0;
-    background: white;
-    border-radius: 10px;
-    width: 30vw;
-    padding-inline: 20px;
+.mainStage{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#202124;
+    overflow:hidden;
 }
 
-.chatContainer {
-    position: relative;
-    height: 100%;
+.conferenceView.single{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
+.conferenceView.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(2,1fr);
+    gap:20px;
+    padding:20px;
+    box-sizing:border-box;
+}
 
-.chattingArea {
-    position: absolute;
-    bottom: 0;
+.conferenceView.grid video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+    background:black;
+}
+
+.participantStrip{
+    height:130px;
+    display:flex;
+    gap:15px;
+    padding:10px 20px;
+    overflow-x:auto;
+    background:#2a2a2a;
+    align-items:center;
+}
+
+.participantTile{
+    width:180px;
+    height:100px;
+    border-radius:12px;
+    object-fit:cover;
+    background:black;
+    flex-shrink:0;
 }
