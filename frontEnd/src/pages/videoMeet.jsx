@@ -66,7 +66,7 @@ function VideoMeet() {
     const videoRef = useRef([])
 
     let [videos, setVideos] = useState([])          // Dusro ke videos
-
+    const [pinnedStream, setPinnedStream] = useState(null);
 
     useEffect(() => {
         return () => {
@@ -313,12 +313,13 @@ function VideoMeet() {
         connectToSocketServer();
     }
 
-    let getDislayMediaSuccess = (stream) => {
+    let getDisplayMediaSuccess = (stream) => {
         try {
             window.localStream?.getTracks()?.forEach(track => track.stop());
         } catch (e) { console.log(e) }
 
         window.localStream = stream;
+        setPinnedStream(stream);
         if (localVideoref.current) {
             localVideoref.current.srcObject = stream;
         }
@@ -342,6 +343,7 @@ function VideoMeet() {
 
         stream.getTracks().forEach(track => track.onended = () => {
             setScreen(false);
+            setPinnedStream(null);
 
             try {
                 let tracks = localVideoref.current.srcObject.getTracks();
@@ -360,7 +362,7 @@ function VideoMeet() {
         if (screen) {
             if (navigator.mediaDevices.getDisplayMedia) {
                 navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
-                    .then(getDislayMediaSuccess)
+                    .then(getDisplayMediaSuccess)
                     .catch((e) => console.log(e))
             }
         }
@@ -410,6 +412,12 @@ function VideoMeet() {
         setMessage("");
     }
 
+    useEffect(() => {
+        if (showModal) {
+            setNewMessages(0);
+        }
+    }, [showModal]);
+
     const screenStream =
         videos.find(v => v.isScreen);
 
@@ -440,21 +448,22 @@ function VideoMeet() {
                 <div className="meetVideoContainer">
 
                     <div className="videoSection">
-                        <MainStage>
-                            {screenShare ? (
-                                <div className="mainScreen">
-                                    <video autoPlay playsInline
-                                        ref={(ref) => {
-                                            if (ref) {
-                                                ref.srcObject = screenShare.stream;
-                                            }
-                                        }} />
-                                </div>
-                            ) : (
-                                <RemoteVideos videos={normalVideos} />
-                            )}
-
-                        </MainStage>
+                    <MainStage>
+                        {pinnedStream ? (
+                            <video
+                                className="mainPinnedVideo"
+                                autoPlay
+                                playsInline
+                                ref={(ref) => {
+                                    if (ref) {
+                                        ref.srcObject = pinnedStream;
+                                    }
+                                }}
+                            />
+                        ) : (
+                            <RemoteVideos videos={normalVideos} />
+                        )}
+                    </MainStage>
 
                         <ParticipantStrip localVideoref={localVideoref} videos={videos} />
                     </div>
