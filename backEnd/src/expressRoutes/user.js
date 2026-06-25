@@ -15,4 +15,16 @@ router.
             wrapAsync(userController.login)
         );
 
+router.
+    route("/add_to_activity")
+        .post(
+            wrapAsync(userController.addToHistory)
+        );
+
+router
+    .route("/get_all_activity")
+        .get(
+            wrapAsync(userController.getUserHistory)
+        );
+
 module.exports = router;

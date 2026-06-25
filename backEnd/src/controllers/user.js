@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Meeting = require("../models/meeting");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 
@@ -76,3 +77,38 @@ module.exports.login = async (req, res) => {
         token
     });
 };
+
+module.exports.getUserHistory = async (req, res) => {
+    const { token } = req.query;
+    const user = await User.findOne({ token });
+
+    if (!user) {
+        return res.status(404).json({
+            message: "User not found"
+        });
+    }
+
+    const meetings = await Meeting.find({
+        user_id: user.username
+    }).sort({ date: -1 });
+    res.json(meetings);
+}
+
+module.exports.addToHistory = async (req, res) => {
+    const { token, meeting_code } = req.body;
+
+    const user = await User.findOne({ token: token });
+
+    const existing = await Meeting.findOne({
+        user_id: user.username,
+        meetingCode: meeting_code
+    });
+
+    if (!existing) {
+        await Meeting.create({
+            user_id: user.username,
+            meetingCode: meeting_code
+        });
+    }
+    res.status(201).json({ message: "Added code to history" })
+}

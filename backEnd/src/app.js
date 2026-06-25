@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended : true}));     //To parse data of an id
 
 app.use(express.json());
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Hey FrontEnd!!!");
 });
 
