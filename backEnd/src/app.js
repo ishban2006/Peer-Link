@@ -14,7 +14,10 @@ const userRoutes = require("./expressRoutes/user");
 const {dispError} = require("./config/middleware");
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "https://peer-link-frontenddep.onrender.com"
+    ],
     credentials: true
 }));
 app.use(express.urlencoded({extended : true}));     //To parse data of an id
