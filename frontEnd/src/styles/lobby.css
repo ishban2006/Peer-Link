@@ -92,3 +92,81 @@
     font-weight:700;
     color:#333;
 }
+
+@media(max-width:900px){
+    .lobbyContainer{
+        flex-direction: column-reverse;
+        align-items:center;
+        padding:30px 20px;
+    }
+
+    .previewVideo{
+        width:100%;
+        height:auto;
+    }
+
+    .lobbyRight{
+        width:100%;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .lobbyContainer{
+        padding: 20px;
+    }
+
+    .lobbyCard{
+        flex-direction: column;
+        gap: 30px;
+        padding: 25px;
+        border-radius: 25px;
+    }
+
+    /* Show camera FIRST */
+    .lobbyRight{
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .previewCard{
+        width: 100%;
+        max-width: 350px;
+        height: 220px;
+    }
+
+    .previewCard video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .lobbyLeft{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .lobbyLeft h1{
+        font-size: 2.3rem;
+        line-height: 1.1;
+        margin-bottom: 12px;
+    }
+
+    .lobbyLeft p{
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .joinMeetingBtn{
+        width: 100%;
+        margin-top: 16px;
+        height: 52px;
+        font-size: 1rem;
+    }
+}

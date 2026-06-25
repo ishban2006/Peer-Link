@@ -29,7 +29,7 @@ function Navbar() {
                         }}
                     >
                         Join as Guest
-                    </p>
+                    </p> 
 
                     <p className="navlistText"
                         onClick={() => navigate("/auth")}

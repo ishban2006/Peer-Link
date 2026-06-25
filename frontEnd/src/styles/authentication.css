@@ -115,3 +115,16 @@
     transform:translateY(-5px);
     background:rgba(255,255,255,.2);
 }
+
+@media(max-width:900px){
+
+    .authLeft{
+        display:none;
+    }
+
+    .authBox{
+        width:90%;
+        margin:auto;
+    }
+
+}

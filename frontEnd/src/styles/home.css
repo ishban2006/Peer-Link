@@ -116,3 +116,88 @@
 .MuiOutlinedInput-root:hover{
     box-shadow:0 0 12px rgba(25,118,210,.15);
 }
+
+@media(max-width:900px){
+    .meetContainer{
+        flex-direction:column-reverse;
+        padding:30px;
+        text-align:center;
+    }
+
+    .leftPanel,
+    .rightPanel{
+        width:100%;
+    }
+
+    .rightPanel img{
+        width:80%;
+        margin-bottom:30px;
+    }
+
+    .joinBox{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .joinBox .MuiTextField-root{
+        width:100%;
+    }
+
+    .joinBtn{
+        width:100%;
+        height:56px;
+    }
+}
+
+@media (max-width:768px){
+
+    .meetContainer{
+        flex-direction: column-reverse;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .leftPanel,
+    .rightPanel{
+        width: 100%;
+    }
+
+    .leftPanel h1{
+        font-size: 2.6rem;      /* instead of 5rem+ */
+        line-height: 1.1;
+        margin-bottom: 18px;
+    }
+
+    .leftPanel p{
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+    .rightPanel img{
+        width: 85%;
+        max-width: 320px;
+        margin-bottom: 40px;
+    }
+
+    .joinBox{
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .joinBox .MuiTextField-root{
+        width: 100%;
+    }
+
+    .joinBtn{
+        width: 100%;
+        height: 56px;
+    }
+
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}

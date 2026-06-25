@@ -37,3 +37,52 @@
   height: 60vh;
   width: auto;
 }
+
+@media (max-width:768px){
+
+    .landingMainContainer{
+        height:auto;
+        padding:40px 25px;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+    }
+
+    /* Hide the phone images */
+
+    .landingMainContainer > div:nth-child(2){
+        display:none;
+    }
+
+    /* Left section */
+
+    .landingMainContainer > div:nth-child(1){
+        width:100%;
+        font-size:1rem;
+    }
+
+    .landingMainContainer > div:nth-child(1) h1{
+        font-size:3.2rem;
+        line-height:1;
+        margin-bottom:18px;
+    }
+
+    .landingMainContainer > div:nth-child(1) h2{
+        font-size:2.7rem;
+        line-height:1;
+        margin-bottom:20px;
+    }
+
+    .landingMainContainer > div:nth-child(1) p{
+        font-size:1.2rem;
+        line-height:1.5;
+        margin-bottom:30px;
+    }
+
+    .landingMainContainer > div:nth-child(1) div[role="button"]{
+        margin:30px auto 0;
+        width:220px;
+        text-align:center;
+    }
+
+}

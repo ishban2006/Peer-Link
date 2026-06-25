@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import io from "socket.io-client";
 import { useParams } from "react-router-dom";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 import useMedia from "../hooks/useMedia";
 import { getUserMedia } from '../hooks/useMedia2';
@@ -68,6 +69,21 @@ function VideoMeet() {
 
     let [videos, setVideos] = useState([])          // Dusro ke videos
     const [pinnedStream, setPinnedStream] = useState(null);
+
+    const [copied, setCopied] = useState(false);
+    const { url } = useParams();
+    const inviteLink = `${window.location.origin}/${url}`;
+    const copyInvite = async () => {
+        try {
+            await navigator.clipboard.writeText(inviteLink);
+            setCopied(true);
+            setTimeout(() => {
+                setCopied(false);
+            }, 2000);
+        } catch {
+            alert("Couldn't copy link");
+        }
+    };
 
     useEffect(() => {
         return () => {
@@ -448,13 +464,21 @@ function VideoMeet() {
             ) : (
                 <div className="meetVideoContainer">
 
+                    <div className="meetingInfo">
+                        <span>
+                            Meeting Code: <strong>{url}</strong>
+                        </span>
+
+                        <Button variant="contained" size="small" 
+                            startIcon={<ContentCopyIcon />} onClick={copyInvite}>
+                            {copied ? "Copied!" : "Copy"}
+                        </Button>
+                    </div>
+
                     <div className="videoSection">
                     <MainStage>
                         {pinnedStream ? (
-                            <video
-                                className="mainPinnedVideo"
-                                autoPlay
-                                playsInline
+                            <video className="mainPinnedVideo" autoPlay playsInline
                                 ref={(ref) => {
                                     if (ref) {
                                         ref.srcObject = pinnedStream;
