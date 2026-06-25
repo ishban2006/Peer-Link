@@ -1,103 +1,131 @@
-# Peer-Link - Real-Time Video Conferencing Platform
+# PeerLink - Video Conferencing Platform
 
-A full-stack video conferencing platform that enables users to create and join meetings, communicate in real time, and collaborate seamlessly through video calls and messaging.
+PeerLink is a full-stack video conferencing application that enables users to create and join secure video meetings with real-time audio/video communication, chat, and screen sharing. It supports both authenticated users and guests while maintaining a meeting history for registered users.
+
+---
 
 ## Features
 
 ### Authentication
 
-* User Registration and Login
-* Secure password hashing with bcrypt
-* Token-based authentication
-* Protected user access
+* User Registration
+* User Login
+* JWT/Token-based authentication
+* Protected routes
+* Guest access without registration
 
-### Video Conferencing
+### Video Meetings
 
-* Create and join meeting rooms
-* Real-time user connectivity with Socket.IO
-* Peer-to-peer video communication using WebRTC
-* Live participant management
+* Create or join meetings using a meeting code
+* Real-time video and audio communication
+* Screen sharing
+* Live chat during meetings
+* Microphone and camera controls
+* Camera preview before joining
+* Copy Meeting Code with one click
 
-### Real-Time Communication
+### Meeting History
 
-* Instant chat messaging during meetings
-* User join and leave notifications
-* Real-time event synchronization
+* Stores every joined meeting for authenticated users
+* Displays meeting code and joining date
+* Guests can join meetings without storing history
 
-### Architecture
-
-* Modular frontend and backend structure
-* RESTful API design
-* Context-based authentication management
-* Real-time communication using WebSockets
+---
 
 ## Tech Stack
 
 ### Frontend
 
 * React.js
-* Material UI
 * React Router
+* Material UI (MUI)
 * Axios
+* CSS3
 
 ### Backend
 
 * Node.js
 * Express.js
-* Socket.IO
-
-### Database
-
 * MongoDB
 * Mongoose
 
-### Authentication
-
-* bcrypt
-* Crypto Tokens
-
 ### Real-Time Communication
 
-* WebRTC
 * Socket.IO
+* WebRTC
+* PeerJS
+
+---
 
 ## Installation
 
-```bash
-git clone https://github.com/your-username/Peer-Link.git
-cd Peer-Link
-```
+### Clone the repository
 
 ```bash
+git clone https://github.com/your-username/PeerLink.git
+```
+
+### Backend
+
+```bash
+cd backEnd
 npm install
+npm start
 ```
 
-Create a `.env` file inside the backend:
+### Frontend
+
+```bash
+cd frontEnd
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file inside the backend directory.
 
 ```env
 MONGO_URI=your_mongodb_connection_string
 PORT=8080
 ```
 
-Run the project:
+---
 
-```bash
-npm run dev
-```
+## Application Flow
 
-## Key Learnings
+### Registered Users
 
-* Real-time communication with Socket.IO
-* Peer-to-peer video streaming using WebRTC
-* Authentication and authorization workflows
-* React Context API state management
-* Building scalable full-stack applications
+* Register/Login
+* Join or create meetings
+* Meeting automatically gets added to history
+* View previous meetings
+* Logout returns to landing page
 
-## Future Improvements
+### Guest Users
 
-* Screen sharing
-* Meeting recording
-* Chat file sharing
-* Meeting scheduling
-* Participant moderation controls
-* End-to-end encryption
+* Join meetings directly from the landing page
+* No account required
+* No meeting history stored
+* Leaving a meeting redirects back to the landing page
+
+---
+
+## Screenshots
+
+Add screenshots here:
+
+* Landing Page
+* Authentication Page
+* Home Page
+* Lobby
+* Video Meeting
+* Meeting History
+
+---
+
+## Author
+
+**Ishaan Bansal**
