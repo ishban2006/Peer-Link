@@ -20,8 +20,8 @@ import "../styles/videoMeet.css";
 import ChatRoom from '../components/chatRoom';
 import Lobby from '../components/lobby'
 import RemoteVideos from '../components/remoteVideos';
-import MainStage from "../components/MainStage";
-import ParticipantStrip from "../components/ParticipantStrip";
+import MainStage from "../components/mainStage";
+import ParticipantStrip from "../components/participantStrip";
 
 const serverURL = import.meta.env.VITE_API_URL;
 
