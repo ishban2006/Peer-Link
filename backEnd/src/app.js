@@ -32,7 +32,7 @@ app.use("/user", userRoutes);
 app.use(dispError);
 
 // Starting the server
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 const {configDB} = require("./config/db");
 const startServer = async () => {
     try {
