@@ -13,6 +13,8 @@ module.exports.connectToSocket = (server) => {
     });
 
     io.on("connection", (socket) => {       // Whenever a connection comes
+        console.log("Connection Established with Socket from FrontEnd");
+        
         socket.on("join-meet", (path) => {
             if (connections[path] === undefined) {
                 connections[path] = [];         // Create Room if dne
@@ -32,11 +34,13 @@ module.exports.connectToSocket = (server) => {
             }
         });
 
-        socket.on("notify", (toId, message) => {
-            io.to(toId).emit("notify", socket.id, message);
+        socket.on("signal", (toId, message) => {
+            io.to(toId).emit("signal", socket.id, message);
+            console.log("SIGNAL");
+            console.log(socket.id, "---->", toId);
         });
 
-        socket.on("chat", (data, sender) => {
+        socket.on("chat-message", (data, sender) => {
             const [matchingRoom, userFound] = Object.entries(connections)
                 .reduce(([room, isFound], [roomKey, roomVal]) => {
 
@@ -93,6 +97,7 @@ module.exports.connectToSocket = (server) => {
                 }
 
                 delete timeOnline[socket.id];
+                console.log(`Call disconnected by ${socket.id}`);
             }
         });
     });
