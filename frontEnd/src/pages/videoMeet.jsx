@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import io from "socket.io-client";
+import { useParams } from "react-router-dom";
 
 import useMedia from "../hooks/useMedia";
 import { getUserMedia } from '../hooks/useMedia2';

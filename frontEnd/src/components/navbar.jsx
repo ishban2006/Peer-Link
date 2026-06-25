@@ -1,8 +1,12 @@
 import '../App.css'
 import '../styles/navbar.css'
 import { Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const navigate = useNavigate();
+
     return (
         <>
             <nav>
@@ -13,16 +17,29 @@ function Navbar() {
                     </h2>
                 </div>
 
-                <div className='navlist'>
-                    <p onClick={() => {router("/aljk23")}} className='navlistText'>
+                <div className="navlist">
+                    <p className="navlistText"
+                        onClick={() => {
+                            console.log("Clicked");
+                            const meetingCode = Math.random()
+                                .toString(36)
+                                .substring(2, 10);
+
+                            navigate(`/${meetingCode}`);
+                        }}
+                    >
                         Join as Guest
                     </p>
 
-                    <p onClick={() => {router("/auth")}} className='navlistText'>
+                    <p className="navlistText"
+                        onClick={() => navigate("/auth")}
+                    >
                         Register
                     </p>
 
-                    <div onClick={() => {router("/auth")}} role='button' className='loginBtn'>
+                    <div role="button" className="loginBtn"
+                        onClick={() => navigate("/auth")}    
+                    >
                         <p>Login</p>
                     </div>
                 </div>

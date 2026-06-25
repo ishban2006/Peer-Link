@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../contexts/AuthContext'
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
@@ -14,7 +14,7 @@ import { IconButton } from '@mui/material';
 
 export default function History() {
     const { getHistoryOfUser } = useContext(AuthContext);
-    const [meetings, setMeetings] = useState([])
+    const [meetings, setMeetings] = useState([]);
 
     const routeTo = useNavigate();
 
@@ -41,9 +41,7 @@ export default function History() {
 
     return (
         <div className="historyPage">
-
             <div className="historyNavbar">
-
                 <div className="historyTitle">
                     Meeting History
                 </div>
@@ -58,16 +56,9 @@ export default function History() {
             </div>
 
             <div className="historyContainer">
-
                 {meetings.length ? (
-
                     meetings.map((meeting, index) => (
-
-                        <Card
-                            key={index}
-                            className="historyCard"
-                            elevation={4}
-                        >
+                        <Card key={index} className="historyCard" elevation={4}>
                             <CardContent>
 
                                 <Typography className="meetingCode">
@@ -78,36 +69,24 @@ export default function History() {
                                     {formatDate(meeting.date)}
                                 </Typography>
 
-                                <Button
-                                    variant="contained"
-                                    className="joinAgainBtn"
-                                    onClick={() => routeTo(`/${meeting.meetingCode}`)}
-                                >
+                                <Button variant="contained" className="joinAgainBtn"
+                                    onClick={() => routeTo(`/${meeting.meetingCode}`)}>
                                     Join Again
                                 </Button>
 
                             </CardContent>
-
                         </Card>
-
                     ))
-
                 ) : (
-
                     <div className="emptyHistory">
-
                         <h2>No Meetings Yet</h2>
-
                         <p>
                             Your previous meetings will appear here.
                         </p>
-
                     </div>
-
                 )}
 
             </div>
-
         </div>
     );
 }

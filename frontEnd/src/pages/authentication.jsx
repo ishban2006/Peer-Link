@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Snackbar } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 import '../styles/authentication.css'
 import { AuthContext } from '../contexts/authContext';
@@ -17,7 +18,7 @@ import LeftGrid from '../components/leftGridAuth';
 const defaultTheme = createTheme();
 
 function Authentication() {
-
+    const navigate = useNavigate();
     const { handleRegister, handleLogin } = useContext(AuthContext);
 
     const [username, setUsername] = useState("");
@@ -61,8 +62,9 @@ function Authentication() {
                 setPassword("");
 
                 setOpen(true);
-
-                // navigate("/home");
+                setTimeout(() => {
+                    navigate("/home");
+                }, 1000);
             }
             else {
                 const res = await handleLogin(
@@ -72,8 +74,9 @@ function Authentication() {
 
                 setMessage(res);
                 setOpen(true);
-
-                // navigate("/home");
+                setTimeout(() => {
+                    navigate("/home");
+                }, 1000);
             }
         } catch (err) {
             const msg =
@@ -99,10 +102,7 @@ function Authentication() {
                     <Box className="authBox">
 
                         <Avatar
-                            sx={{
-                                m: 1,
-                                bgcolor: 'secondary.main'
-                            }}
+                            sx={{ m: 1, bgcolor: 'secondary.main' }}
                         >
                             <LockOutlinedIcon />
                         </Avatar>
@@ -112,15 +112,14 @@ function Authentication() {
                                 variant={formState === 0 ? "contained" : "outlined"}
                                 onClick={() => setFormState(0)}
                             >
-                                Sign In
+                                Login
                             </Button>
 
-                            <Button
-                                fullWidth
+                            <Button fullWidth
                                 variant={formState === 1 ? "contained" : "outlined"}
                                 onClick={() => setFormState(1)}
                             >
-                                Sign Up
+                                Register
                             </Button>
                         </div>
 
@@ -151,9 +150,7 @@ function Authentication() {
                                                  ? "Login" : "Register"
                                     }
                             </Button>
-
                         </Box>
-
                     </Box>
                 </Grid>
 

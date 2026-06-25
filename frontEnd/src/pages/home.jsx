@@ -1,21 +1,25 @@
 import React, { useContext, useState } from 'react'
 import withAuth from '../utils/withAuth'
 import { useNavigate } from 'react-router-dom'
+
 import '../styles/home.css'
 import '../styles/navbar.css'
 import { Button, IconButton, TextField } from '@mui/material';
 import RestoreIcon from '@mui/icons-material/Restore';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/authContext';
 import { Users } from "lucide-react";
 
 function HomeComponent() {
     let navigate = useNavigate();
     const [meetingCode, setMeetingCode] = useState("");
 
-    const {addToUserHistory} = useContext(AuthContext);
+    const { addToUserHistory } = useContext(AuthContext);
     let handleJoinVideoCall = async () => {
-        await addToUserHistory(meetingCode)
-        navigate(`/${meetingCode}`)
+        if (!meetingCode.trim()) return;
+
+    const code = meetingCode.trim();
+    await addToUserHistory(code);
+    navigate(`/${code}`);
     }
 
     return (
@@ -57,17 +61,17 @@ function HomeComponent() {
 
                         <div className="joinBox">
 
-                            <TextField
-                                label="Meeting Code"
-                                variant="outlined"
-                                onChange={(e) => setMeetingCode(e.target.value)}
+                            <TextField label="Meeting Code" variant="outlined"
+                                onChange={(e)=>setMeetingCode(e.target.value)}
+                                onKeyDown={(e)=>{
+                                    if(e.key==="Enter"){
+                                        handleJoinVideoCall();
+                                    }
+                                }}
                             />
 
-                            <Button
-                                className="joinBtn"
-                                variant="contained"
-                                onClick={handleJoinVideoCall}
-                            >
+                            <Button className="joinBtn" variant="contained"
+                                onClick={handleJoinVideoCall}>
                                 Join
                             </Button>
 
