@@ -1,0 +1,87 @@
+.historyPage{
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.historyNavbar{
+    height:80px;
+    padding:0 50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:white;
+    border-bottom:1px solid #ececec;
+}
+
+.historyTitle{
+    font-size:32px;
+    font-weight:700;
+    color:#333;
+}
+
+.homeBtn{
+    transition:.25s;
+}
+
+.homeBtn:hover{
+    transform:scale(1.08);
+}
+
+.historyContainer{
+    width:900px;
+    max-width:90%;
+
+    margin:50px auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.historyCard{
+    border-radius:18px !important;
+    transition:.25s !important;
+}
+
+.historyCard:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(0,0,0,.12) !important;
+}
+
+.meetingCode{
+    font-size:24px !important;
+    font-weight:700 !important;
+    margin-bottom:10px !important;
+}
+
+.meetingDate{
+    color:#666 !important;
+    margin-bottom:18px !important;
+}
+
+.joinAgainBtn{
+    border-radius:10px !important;
+    text-transform:none !important;
+    transition:.25s !important;
+}
+
+.joinAgainBtn:hover{
+    transform:translateY(-2px);
+}
+
+.emptyHistory{
+    margin-top:120px;
+    text-align:center;
+}
+
+.emptyHistory h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.emptyHistory p{
+    color:#666;
+    font-size:18px;
+}

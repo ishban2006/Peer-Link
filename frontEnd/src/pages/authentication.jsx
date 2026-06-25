@@ -12,6 +12,7 @@ import { Snackbar } from '@mui/material';
 
 import '../styles/authentication.css'
 import { AuthContext } from '../contexts/authContext';
+import LeftGrid from '../components/leftGridAuth';
 
 const defaultTheme = createTheme();
 
@@ -91,7 +92,7 @@ function Authentication() {
 
                 <CssBaseline />
 
-                <Grid size={{ xs: 0, sm: 4, md: 7 }} className="authLeft" />
+                <LeftGrid />
 
                 <Grid size={{ xs: 12, sm: 8, md: 5 }} component={Paper} elevation={6} square>
 

@@ -1,0 +1,118 @@
+.navBar{
+    height:80px;
+    padding:0 50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#ffffff;
+    border-bottom:1px solid #e8e8e8;
+}
+
+.navBarRight{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.navBarRight p,
+.navBarRight button{
+    cursor:pointer;
+    transition:.25s;
+}
+
+.navBarRight p:hover{
+    color:#1976d2;
+}
+
+.navBarRight button:hover{
+    transform:scale(1.05);
+}
+
+.historyBtn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.meetContainer{
+    height:calc(100vh - 80px);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 80px;
+
+    background:#f5f7fb;
+}
+
+.leftPanel{
+    width:45%;
+}
+
+.leftPanel h1{
+    font-size:54px;
+    margin-bottom:15px;
+    color:#202124;
+}
+
+.leftPanel p{
+    font-size:22px;
+    color:#666;
+    margin-bottom:40px;
+    line-height:1.6;
+}
+
+.joinBox{
+    display:flex;
+    gap:15px;
+    align-items:stretch;
+}
+
+.joinBox .MuiTextField-root{
+    width:360px;
+}
+
+.joinBtn{
+    min-width:120px;
+}
+
+.joinBtn{
+    transition:.25s;
+}
+
+.joinBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(25,118,210,.35);
+}
+
+.rightPanel{
+    width:50%;
+    display:flex;
+    justify-content:center;
+}
+
+.rightPanel img{
+    width:95%;
+    max-width:650px;
+}
+
+.rightPanel img{
+    transition:.35s;
+}
+
+.rightPanel img:hover{
+    transform:scale(1.03);
+}
+
+.MuiOutlinedInput-root{
+    transition:.25s !important;
+}
+
+.MuiOutlinedInput-root:hover{
+    box-shadow:0 0 12px rgba(25,118,210,.15);
+}

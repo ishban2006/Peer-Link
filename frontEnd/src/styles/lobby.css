@@ -1,0 +1,94 @@
+.lobbyContainer{
+    min-height:100vh;
+    background:#eef3fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.lobbyCard{
+    width:1100px;
+    max-width:100%;
+    display:flex;
+    gap:60px;
+    background:white;
+    border-radius:24px;
+    padding:45px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+.lobbyLeft{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.lobbyLeft h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.lobbyLeft p{
+    color:#666;
+    font-size:1.1rem;
+    margin-bottom:35px;
+    line-height:1.7;
+}
+
+.joinMeetingBtn{
+    margin-top:25px !important;
+    height:56px;
+    font-size:18px !important;
+    border-radius:12px !important;
+}
+
+.lobbyRight{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.previewCard{
+    width:100%;
+    max-width:520px;
+    background:#181818;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.previewCard video{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    background:black;
+}
+
+.previewLabel{
+    padding:14px;
+    text-align:center;
+    color:white;
+    font-weight:600;
+    background:#242424;
+}
+
+.lobbyLogo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.lobbyLogo img{
+    width:52px;
+}
+
+.lobbyLogo span{
+    font-size:2rem;
+    font-weight:700;
+    color:#333;
+}
