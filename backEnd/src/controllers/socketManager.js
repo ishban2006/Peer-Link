@@ -10,7 +10,7 @@ module.exports.connectToSocket = (server) => {
             origin: [
             "http://localhost:5173",
             "http://localhost:5174",
-            "https://peer-link-frontenddep.onrender.com"
+            "https://peer-link-1-snkh.onrender.com"
         ],
             methods: ["GET", "POST"]
         }
