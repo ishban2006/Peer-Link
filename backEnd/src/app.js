@@ -16,6 +16,7 @@ const {dispError} = require("./config/middleware");
 app.use(cors({
     origin: [
         "http://localhost:5173",
+        "http://localhost:5174",
         "https://peer-link-frontenddep.onrender.com"
     ],
     credentials: true
