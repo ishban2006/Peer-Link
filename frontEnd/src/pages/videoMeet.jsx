@@ -113,6 +113,9 @@ function VideoMeet() {
         if(localVideoref.current){
             localVideoref.current.srcObject = stream;
         }
+        if (!socketRef.current) {
+            connectToSocketServer();
+        }
 
         for (let id in connections) {
             if (id === socketIdRef.current) continue;
@@ -327,7 +330,6 @@ function VideoMeet() {
     let getMedia = () => {
         setVideo(videoAvailable);
         setAudio(audioAvailable);
-        connectToSocketServer();
     }
 
     let getDisplayMediaSuccess = (stream) => {
