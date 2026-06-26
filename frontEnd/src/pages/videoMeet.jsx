@@ -75,7 +75,7 @@ function VideoMeet() {
     const inviteLink = `${window.location.origin}/${url}`;
     const copyInvite = async () => {
         try {
-            await navigator.clipboard.writeText(inviteLink);
+            await navigator.clipboard.writeText(url);
             setCopied(true);
             setTimeout(() => {
                 setCopied(false);
@@ -222,7 +222,7 @@ function VideoMeet() {
         socketRef.current.on('signal', gotMessageFromServer);               // Catching what backend emitted
 
         socketRef.current.on('connect', () => {
-            socketRef.current.emit('join-meet', window.location.href);
+            socketRef.current.emit('join-meet', url);
 
             socketIdRef.current = socketRef.current.id;
 

@@ -20,12 +20,8 @@ function Navbar() {
                 <div className="navlist">
                     <p className="navlistText"
                         onClick={() => {
-                            console.log("Clicked");
-                            const meetingCode = Math.random()
-                                .toString(36)
-                                .substring(2, 10);
-
-                            navigate(`/${meetingCode}`);
+                            localStorage.removeItem("token");
+                            navigate("/guest");
                         }}
                     >
                         Join as Guest
