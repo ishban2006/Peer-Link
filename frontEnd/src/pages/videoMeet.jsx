@@ -26,9 +26,31 @@ import ParticipantStrip from "../components/participantStrip";
 const serverURL = import.meta.env.VITE_API_URL;
 
 const peerConfigConnections = {
-    "iceServers": [
-        { "urls": "stun:stun.l.google.com:19302" }
-    ]
+    iceServers: [
+      {
+        urls: "stun:stun.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80",
+        username: "09b72ea0c7710f00ce641dc8",
+        credential: "m/hRMOsUo+OBLKpc",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80?transport=tcp",
+        username: "09b72ea0c7710f00ce641dc8",
+        credential: "m/hRMOsUo+OBLKpc",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:443",
+        username: "09b72ea0c7710f00ce641dc8",
+        credential: "m/hRMOsUo+OBLKpc",
+      },
+      {
+        urls: "turns:global.relay.metered.ca:443?transport=tcp",
+        username: "09b72ea0c7710f00ce641dc8",
+        credential: "m/hRMOsUo+OBLKpc",
+      },
+    ],
 }
 
 const connections = {};
